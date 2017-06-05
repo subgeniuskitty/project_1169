@@ -1,0 +1,8 @@
+Configure Apache for Python CGI scripts
+Provision new MySQL db
+  Write a script to write new db schema
+Setup Apache HTTP auth
+
+While Chuck is here:
+  Set HTTP auth password
+  Create list of db fields and corresponding datatype
