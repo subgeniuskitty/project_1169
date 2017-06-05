@@ -1,0 +1,11 @@
+################################################################################
+# Project 1169
+################################################################################
+
+##### Description
+
+Prototype datalogger for Chuck. Starting with rudimentary printing of data from DB and record input.
+
+##### Installation
+
+Designed to be called as Apache CGI script. Needs MySQL backend provisioned per schema.txt and accessible via python.
