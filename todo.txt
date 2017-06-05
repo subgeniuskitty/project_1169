@@ -1,8 +1,13 @@
-Configure Apache for Python CGI scripts
-Provision new MySQL db
-  Write a script to write new db schema
+Get basic page loading
 Setup Apache HTTP auth
+Make a basic CSS file to pretty up the forms
+Create 'delete' page
+Create 'view' page
+Create 'main' page with instructions
+  and links
+  and new record form
 
 While Chuck is here:
   Set HTTP auth password
   Create list of db fields and corresponding datatype
+  Reminder: Very basic. For example, no error checking of successful record entry. Also prints errors to user instead of to console.
