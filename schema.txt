@@ -1,0 +1,23 @@
+CREATE TABLE data_00001
+(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+deleted BOOLEAN NOT NULL DEFAULT 0,
+guest_id INT,
+facility_id INT,
+notes TEXT
+);
+
+========================================================================================================================
+
+mysql> describe data_00001;
++-------------+------------+------+-----+-------------------+----------------+
+| Field       | Type       | Null | Key | Default           | Extra          |
++-------------+------------+------+-----+-------------------+----------------+
+| id          | int(11)    | NO   | PRI | NULL              | auto_increment |
+| timestamp   | timestamp  | NO   |     | CURRENT_TIMESTAMP |                |
+| deleted     | tinyint(1) | NO   |     | 0                 |                |
+| guest_id    | int(11)    | YES  |     | NULL              |                |
+| facility_id | int(11)    | YES  |     | NULL              |                |
+| notes       | text       | YES  |     | NULL              |                |
++-------------+------------+------+-----+-------------------+----------------+
