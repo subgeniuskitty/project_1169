@@ -8,4 +8,16 @@ Prototype datalogger for Chuck. Starting with rudimentary printing of data from 
 
 ##### Installation
 
-Designed to be called as Apache CGI script. Needs MySQL backend provisioned per schema.txt and accessible via python.
+mysql -u root -p
+  create database sgk_project_1169
+  grant all privileges on sgk_project_1169.* to 'user'@'localhost' identified by 'password';
+  <create table as listed in schema.txt>
+a2enmod cgi
+Edit Apache virtualhost entry and add a new <Directory> entry
+        <Directory "/mnt/data/apache_vhosts/subgeniuskitty.com/project_1169">
+                DirectoryIndex index.py
+                Options +ExecCGI
+                AddHandler cgi-script .py
+        </Directory>
+apt-get install python-mysqldb
+Edit index.py with DB config
