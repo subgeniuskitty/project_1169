@@ -1,0 +1,5 @@
+# Database Config
+host     = "hostname"
+db       = "database"
+user     = "username"
+password = "password"

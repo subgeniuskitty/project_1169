@@ -5,12 +5,14 @@ import cgitb, cgi
 cgitb.enable()
 print("Content-Type: text/html;charset=utf-8\n")
 
+import config
+
 import MySQLdb
-#db = MySQLdb.connect(host="localhost",
-#                     user="root",
-#                     passwd="nopass",
-#                     db="sgk_project1169")
-#cur = db.cursor()
+db = MySQLdb.connect(host=config.host,
+                     user=config.user,
+                     passwd=config.password,
+                     db=config.db)
+cur = db.cursor()
 
 ########################################################################################################################
 # Function Definitions
