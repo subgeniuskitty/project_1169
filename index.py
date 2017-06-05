@@ -6,11 +6,11 @@ cgitb.enable()
 print("Content-Type: text/html;charset=utf-8\n")
 
 import MySQLdb
-db = MySQLdb.connect(host="localhost",
-                     user="root",
-                     passwd="nopass",
-                     db="sgk_project1169")
-cur = db.cursor()
+#db = MySQLdb.connect(host="localhost",
+#                     user="root",
+#                     passwd="nopass",
+#                     db="sgk_project1169")
+#cur = db.cursor()
 
 ########################################################################################################################
 # Function Definitions
@@ -21,10 +21,18 @@ cur = db.cursor()
 ########################################################################################################################
 
 arguments = cgi.FieldStorage()
-if( arguments["mode"] == "view" ):
+# We assume the user is authenticated and trusted at this point, so encourage functionality.
+if "mode" not in arguments:
+	mode = "main"
+else:
+	mode = arguments["mode"]
+
+if( mode == "view" ):
 	# print all the data, kept separate since it will slow down as table size inceases and I want input to be snappy.
-if( arguments["mode"] == "delete_record" ):
+	print("test")
+if( mode == "delete_record" ):
 	# form to delete record, kept on separate page to avoid accidents
+	print("test")
 else:
 	# We assume the user has already been validated elsewhere and has full access, so we want to encourage functionality.
 	# Thus, we fall through to the main menu.
