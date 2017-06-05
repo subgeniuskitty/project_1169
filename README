@@ -9,7 +9,7 @@ Prototype datalogger for Chuck. Starting with rudimentary printing of data from 
 ##### Installation
 
 mysql -u root -p
-  create database sgk_project_1169
+  create database sgk_project_1169;
   grant all privileges on sgk_project_1169.* to 'user'@'localhost' identified by 'password';
   <create table as listed in schema.txt>
 a2enmod cgi
