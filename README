@@ -20,4 +20,4 @@ Edit Apache virtualhost entry and add a new <Directory> entry
                 AddHandler cgi-script .py
         </Directory>
 apt-get install python-mysqldb
-Edit index.py with DB config
+Create config.py based on config.py.example and populate with correct info
