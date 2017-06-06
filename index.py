@@ -45,21 +45,37 @@ def delete_record(table, cursor, database, record_id):
 	cursor.execute("UPDATE " + table + " SET deleted=1,deleted_timestamp=CURRENT_TIMESTAMP WHERE id=" + record_id)
 	database.commit()
 
+def print_enter_form():
+	print("Note: The Tranquility Lane facility has ID 1.")
+        print("<form method=\"post\" action=\"?mode=enter_record_execute\">")
+        print("Guest ID:<br />")
+        print("<input type=\"text\" name=\"guest_id\" /><br />")
+        print("Facility ID:<br />")
+        print("<input type=\"text\" name=\"facility_id\" /><br />")
+        print("Notes:<br />")
+        print("<input type=\"text\" name=\"notes\" /><br />")
+        print("<input type=\"submit\" value=\"Submit\" />")
+        print("</form>")
+
+def enter_record(table, cursor, database, guest_id, facility_id, notes):
+	cursor.execute("INSERT INTO " + table + " (guest_id,facility_id,notes) VALUES (\"" + guest_id + "\",\"" + facility_id + "\",\"" + notes + "\")")
+	database.commit()
+
 ########################################################################################################################
 # Main program
 ########################################################################################################################
 
 arguments = cgi.FieldStorage()
-# We assume the user is authenticated and trusted at this point, so encourage functionality by falling through to menu.
+# We assume the user is authenticated and trusted at this point, so encourage functionality by falling through to 'enter records' page.
 if "mode" not in arguments:
-	mode = "main"
+	mode = "enter_record"
 else:
 	mode = arguments["mode"].value
 
 # Print the navigation bar
-print("<a href=\"?mode=main\">Enter Records</a><br />")
+print("<a href=\"?mode=enter_record\">Enter Record</a><br />")
 print("<a href=\"?mode=view_records\">View Records</a><br />")
-print("<a href=\"?mode=delete_record\">Delete Records</a><br />")
+print("<a href=\"?mode=delete_record\">Delete Record</a><br />")
 
 # Branch based on user page choice
 if(mode == "view_records"):
@@ -72,10 +88,16 @@ elif(mode == "delete_record_execute"):
 	print("<h1>Delete Records</h1>")
 	delete_record(config.table, cur, db, arguments["record_id"].value)
 	print("Delete instruction issued for record_id=" + str(arguments["record_id"].value) + ". Use navigation bar to continue.<br />")
+elif(mode == "enter_record"):
+	print("<h1>Enter Record</h1>")
+	print_enter_form()
+elif(mode == "enter_record_execute"):
+	print("<h1>Enter Record</h1>")
+	enter_record(config.table, cur, db, arguments["guest_id"].value, arguments["facility_id"].value, arguments["notes"].value)
+	print("Insert instruction issued. Use navigation bar to continue.")
 else:
-	print("<h1>Main Menu</h1>\n")
-	# print instructions, list of facility_id -> facility names and other fields until dropdowns implemented
-	# print form to enter new record
+	print("<h1>Nowhere</h1>\n")
+	print("How did you get here?")
 
 cur.close()
 db.close()
