@@ -47,15 +47,15 @@ def delete_record(table, cursor, database, record_id):
 
 def print_enter_form():
 	print("Note: The Tranquility Lane facility has ID 1.")
-        print("<form method=\"post\" action=\"?mode=enter_record_execute\">")
-        print("Guest ID:<br />")
-        print("<input type=\"text\" name=\"guest_id\" /><br />")
-        print("Facility ID:<br />")
-        print("<input type=\"text\" name=\"facility_id\" /><br />")
-        print("Notes:<br />")
-        print("<input type=\"text\" name=\"notes\" /><br />")
-        print("<input type=\"submit\" value=\"Submit\" />")
-        print("</form>")
+	print("<form method=\"post\" action=\"?mode=enter_record_execute\">")
+	print("Guest ID:<br />")
+	print("<input type=\"text\" name=\"guest_id\" /><br />")
+	print("Facility ID:<br />")
+	print("<input type=\"text\" name=\"facility_id\" /><br />")
+	print("Notes:<br />")
+	print("<input type=\"text\" name=\"notes\" /><br />")
+	print("<input type=\"submit\" value=\"Submit\" />")
+	print("</form>")
 
 def enter_record(table, cursor, database, guest_id, facility_id, notes):
 	cursor.execute("INSERT INTO " + table + " (guest_id,facility_id,notes) VALUES (\"" + guest_id + "\",\"" + facility_id + "\",\"" + notes + "\")")
