@@ -1,6 +1,6 @@
 # vim swap files
 *.swp
 
-# Config file that contains passwords, and the bytecode
+# Text and bytecode config files containng passwords
 config.py
 config.pyc

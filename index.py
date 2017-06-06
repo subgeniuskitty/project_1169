@@ -27,7 +27,11 @@ def print_all_records(table, cursor):
 			print("<tr bgcolor=\"#FF0000\">")
 		else:
 			print("<tr>")
-		print("<td>" + str(row[1]) + "</td><td>" + str(row[2]) + "</td><td>" + str(row[3]) + "</td><td>" + row[4] + "</td></tr>")
+		print("<td>" + str(row[1]) + "</td>")
+		print("<td>" + str(row[2]) + "</td>")
+		print("<td>" + str(row[3]) + "</td>")
+		print("<td>" + row[4] + "</td>")
+		print("</tr>")
 	print("</table>")
 
 def print_delete_form():
@@ -59,7 +63,7 @@ print("<a href=\"?mode=delete_record\">Delete Records</a><br />")
 
 # Branch based on user page choice
 if(mode == "view"):
-	print("<h1>All Records</h1>")
+	print("<h1>View Records</h1>")
 	print_all_records(config.table, cur)
 elif(mode == "delete_record"):
 	print("<h1>Delete Records</h1>")

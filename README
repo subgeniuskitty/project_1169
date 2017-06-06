@@ -4,7 +4,7 @@
 
 ##### Description
 
-Prototype datalogger for Chuck. Starting with rudimentary printing of data from DB and record input.
+Prototype datalogger for Chuck. Can input, view and delete records from SQL backend.
 
 ##### Installation
 
