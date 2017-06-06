@@ -1,13 +1,7 @@
-Get basic page loading
-Setup Apache HTTP auth
 Make a basic CSS file to pretty up the forms
-Create 'delete' page
-Create 'view' page
-Create 'main' page with instructions
-  and links
-  and new record form
+Consider strikethrough instead of red bgcolor for deleted records when viewing
 
 While Chuck is here:
   Set HTTP auth password
   Create list of db fields and corresponding datatype
-  Reminder: Very basic. For example, no error checking of successful record entry. Also prints errors to user instead of to console.
+  Reminder: Very basic. For example, no error checking of successful record entry. Also prints errors to user instead of to console. No santizing of inputs.
