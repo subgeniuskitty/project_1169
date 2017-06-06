@@ -18,6 +18,18 @@ cur = db.cursor()
 # Function Definitions
 ########################################################################################################################
 
+def print_all_records(table, cursor):
+	cursor.execute("SELECT deleted,id,guest_id,facility_id,notes FROM " + config.table)
+	print("<table>")
+	print("<tr><th>id</th><th>guest_id</th><th>facility_id</th><th>notes</th></tr>")
+	for row in cursor.fetchall():
+		if row[0] == 1:
+			print("<tr bgcolor=\"#FF0000\">")
+		else:
+			print("<tr>")
+		print("<td>" + str(row[1]) + "</td><td>" + str(row[2]) + "</td><td>" + str(row[3]) + "</td><td>" + row[4] + "</td></tr>")
+	print("</table>")
+
 ########################################################################################################################
 # Main program
 ########################################################################################################################
@@ -36,7 +48,8 @@ print("<a href=\"?mode=delete_record\">Delete Records</a><br />")
 
 # Branch based on user page choice
 if( mode == "view" ):
-	print("test")
+	print("<h1>All Records</h1>")
+	print_all_records(config.table, cur)
 elif( mode == "delete_record" ):
 	print("test2")
 else:
