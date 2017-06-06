@@ -1,5 +1,3 @@
-Make a basic CSS file to pretty up the forms
-Consider strikethrough instead of red bgcolor for deleted records when viewing
 
 While Chuck is here:
   Set HTTP auth password
