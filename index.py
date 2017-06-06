@@ -37,7 +37,7 @@ def print_all_records(table, cursor):
 def print_delete_form():
 	print("<form method=\"post\" action=\"?mode=delete_record_execute\">")
 	print("Record ID:<br />")
-	print("<input type=\"text\" name=\"record_id\" /><br />")
+	print("<input type=\"text\" name=\"record_id\" />")
 	print("<input type=\"submit\" value=\"Submit\" />")
 	print("</form>")
 
