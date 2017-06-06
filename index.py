@@ -58,11 +58,11 @@ else:
 
 # Print the navigation bar
 print("<a href=\"?mode=main\">Enter Records</a><br />")
-print("<a href=\"?mode=view\">View Records</a><br />")
+print("<a href=\"?mode=view_records\">View Records</a><br />")
 print("<a href=\"?mode=delete_record\">Delete Records</a><br />")
 
 # Branch based on user page choice
-if(mode == "view"):
+if(mode == "view_records"):
 	print("<h1>View Records</h1>")
 	print_all_records(config.table, cur)
 elif(mode == "delete_record"):
