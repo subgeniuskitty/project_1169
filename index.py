@@ -24,7 +24,7 @@ def print_all_records(table, cursor):
 	print("<tr><th>record_id</th><th>guest_id</th><th>facility_id</th><th>notes</th></tr>")
 	for row in cursor.fetchall():
 		if row[0] == 1:
-			print("<tr bgcolor=\"#FF0000\">")
+			print("<tr class=\"deleted_record\">")
 		else:
 			print("<tr>")
 		print("<td>" + str(row[1]) + "</td>")
@@ -46,20 +46,40 @@ def delete_record(table, cursor, database, record_id):
 	database.commit()
 
 def print_enter_form():
-	print("Note: The Tranquility Lane facility has ID 1.")
 	print("<form method=\"post\" action=\"?mode=enter_record_execute\">")
-	print("Guest ID:<br />")
-	print("<input type=\"text\" name=\"guest_id\" /><br />")
-	print("Facility ID:<br />")
-	print("<input type=\"text\" name=\"facility_id\" /><br />")
-	print("Notes:<br />")
-	print("<input type=\"text\" name=\"notes\" /><br />")
+	print("Guest ID:")
+	print("<input type=\"text\" name=\"guest_id\" />")
+	print("Facility ID:")
+	print("<input type=\"text\" name=\"facility_id\" />")
+	print("Notes:")
+	print("<input type=\"text\" name=\"notes\" />")
 	print("<input type=\"submit\" value=\"Submit\" />")
 	print("</form>")
 
 def enter_record(table, cursor, database, guest_id, facility_id, notes):
 	cursor.execute("INSERT INTO " + table + " (guest_id,facility_id,notes) VALUES (\"" + guest_id + "\",\"" + facility_id + "\",\"" + notes + "\")")
 	database.commit()
+
+def print_html_header():
+	print("<html>")
+	print("<head>")
+	print("<title>Project 1169</title>")
+	print("<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\" />")
+	print("</head>")
+	print("<body>")
+	print("<div id=\"main_body\">")
+
+def print_html_footer():
+	print("</div>")
+	print("</body>")
+	print("</html>")
+
+def print_navigation_header():
+	print("<div class=\"sub_body\">")
+	print("<a href=\"?mode=enter_record\" class=\"button\">Enter</a>")
+	print("<a href=\"?mode=view_records\" class=\"button\">View</a>")
+	print("<a href=\"?mode=delete_record\" class=\"button\">Delete</a>")
+	print("</div>")
 
 ########################################################################################################################
 # Main program
@@ -72,11 +92,10 @@ if "mode" not in arguments:
 else:
 	mode = arguments["mode"].value
 
-# Print the navigation bar
-print("<a href=\"?mode=enter_record\">Enter Record</a><br />")
-print("<a href=\"?mode=view_records\">View Records</a><br />")
-print("<a href=\"?mode=delete_record\">Delete Record</a><br />")
+print_html_header()
+print_navigation_header()
 
+print("<div class=\"sub_body\">")
 # Branch based on user page choice
 if(mode == "view_records"):
 	print("<h1>View Records</h1>")
@@ -89,7 +108,7 @@ elif(mode == "delete_record_execute"):
 	delete_record(config.table, cur, db, arguments["record_id"].value)
 	print("Delete instruction issued for record_id=" + str(arguments["record_id"].value) + ". Use navigation bar to continue.<br />")
 elif(mode == "enter_record"):
-	print("<h1>Enter Record</h1>")
+	print("<h1>Enter Records</h1>")
 	print_enter_form()
 elif(mode == "enter_record_execute"):
 	print("<h1>Enter Record</h1>")
@@ -98,6 +117,9 @@ elif(mode == "enter_record_execute"):
 else:
 	print("<h1>Nowhere</h1>\n")
 	print("How did you get here?")
+print("</div>")
+
+print_html_footer()
 
 cur.close()
 db.close()

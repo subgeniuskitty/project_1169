@@ -1,0 +1,109 @@
+/*
+ * Core Colors: #C8C3CC, #563F46, #8CA3A3, #484F4F
+ */
+
+#main_body {
+	width: 800px;
+}
+
+body {
+	background-color: #C8C3CC;
+	color: #462F36;
+}
+
+.sub_body {
+	background-color: #9CB3B3;
+	border: 2px solid #484F4F;
+	border-radius: 5px;
+	padding: 10px 15px 10px 15px;
+	margin: 5px;
+}
+
+h1 {
+	background-color: #C2C2C2;
+	border: none;
+	border-bottom: 3px solid #462F36;
+	border-top: 3px solid #462F36;
+	border-left: 1px solid #462F36;
+	border-right: 1px solid #462F36;
+	border-radius: 5px;
+	padding: 8px 10px 8px 10px;
+	text-align: center;
+}
+
+a.button {
+	background-color: #462F36;
+	border: none;
+	border-radius: 5px;
+	color: #C2C2C2;
+	padding: 7px 16px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	display: inline-block;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+a.button:hover {
+	background-color: 686F6F;
+}
+
+.deleted_record {
+	text-decoration: line-through;
+}
+
+/*
+ * Tables
+ */
+
+table, th, td {
+	border-collapse: collapse;
+	border: 1px solid grey;
+	padding: 5px;
+}
+
+th {background-color: #C2C2C2}
+tr {background-color: #F2F2F2}
+tr:nth-child(even) {background-color: #FFFFFF}
+tr:hover {background-color: #C2C2C2}
+
+/*
+ * Forms
+ */
+
+form {
+	font-weight: bold;
+}
+
+input {
+	background-color: #C2C2C2;
+	border-left: 8px solid #462F36;
+	border-right: 1px solid #462F36;
+	border-top: 1px solid #462F36;
+	border-bottom: 1px solid #462F36;
+	border-radius: 5px;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 7px;
+	width: 500px;
+}
+
+input:hover, input:focus {
+	background-color: #C8C3CC;
+}
+
+input[type=button], input[type=submit] {
+	border: none;
+	background-color: #462F36;
+	color: #C2C2C2;
+	padding: 7px;
+	font-weight: bold;
+	width: 100px;
+	margin-top: 20px;
+}
+
+input[type=button]:hover, input[type=submit]:hover {
+	background-color: #68686F;
+}
