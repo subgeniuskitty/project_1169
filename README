@@ -15,9 +15,12 @@ mysql -u root -p
 a2enmod cgi
 Edit Apache virtualhost entry and add a new <Directory> entry
         <Directory "/mnt/data/apache_vhosts/subgeniuskitty.com/project_1169">
+		AllowOverride AuthConfig
                 DirectoryIndex index.py
                 Options +ExecCGI
                 AddHandler cgi-script .py
         </Directory>
 apt-get install python-mysqldb
 Create config.py based on config.py.example and populate with correct info
+htpasswd <path_to_htpasswd_file> <username>
+Edit project_1169/.htaccess with correct path to .htpasswd file
